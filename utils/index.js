@@ -2,7 +2,8 @@ const genMd = require('./generateMarkdown');
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-module.exports = {genMd };
+
+module.exports = {genMd};
 
 
 
@@ -20,30 +21,20 @@ inquirer
         message: 'What is the description of the project?'
     },
     {
-        type: 'input',
-        name: 'installation',
-        message: 'What are the installations required for the project?'
-    },
+      type: 'list',
+      name: 'license',
+      message: 'what license will you pick?',
+      choices: ['mit', 'apache', 'isc']
+  },
     {
         type: 'input',
-        name: 'usage',
-        message: 'how would the project be used?'
-    },
-    {
-        type: 'list',
-        name: 'license',
-        message: 'What are the license of the project',
-        choices:['Apache 2.0', 'MIT', 'Boost Software', 'N/A']
+        name: 'installation',  
+        message: 'any installations?'
     },
     {
         type: 'input',
         name: 'contribution',
-        message: 'Who contributed to this project?'
-    },
-    {
-        type: 'input',
-        name: 'test',
-        message: 'What test are required for this project?'
+        message: 'Who worked on this?'
     },
     {
         type: 'input',
@@ -54,12 +45,13 @@ inquirer
         type: 'input',
         name: 'github',
         message: 'What is your Github?'
-    } 
+    }
 ])
-  .then((data) => {
+  .then((answers) => {
    
-
-    fs.writeFile('README.md', JSON.stringify(data, null, '\t'), (err) =>
-      err ? console.log(err) : console.log('Success!')
+    const results = genMd(answers)
+    
+    fs.writeFile('README.md',results, (err) =>
+      err ? console.log(err) : console.log('made the file!')
     );
   });
