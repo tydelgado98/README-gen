@@ -1,0 +1,23 @@
+{
+  "name": "README gen",
+  "version": "1.0.0",
+  "description": "[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^6.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tydelgado98/README-gen.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/tydelgado98/README-gen/issues"
+  },
+  "homepage": "https://github.com/tydelgado98/README-gen#readme"
+}
